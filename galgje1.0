@@ -16,3 +16,9 @@ while True:
   if userguess == hetwoord: #als je het woord heb geraden
     print('je heb het woord ' + '"' + hetwoord + '"' + " geraden")
     break
+ elif match: #goed geraden letter
+    print("HeEl GoEd!!!")
+    for i in range(0, lengtewoord):
+      if userguess == hetwoord[i]:
+        temp = temp[:i] + userguess +temp[i+1:]
+    print(temp)
