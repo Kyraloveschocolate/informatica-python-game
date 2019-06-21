@@ -1,3 +1,4 @@
+
 import re
 import random
 
@@ -7,16 +8,21 @@ hetwoord = random.choice(compwoordenlist)
 lengtewoord = len(hetwoord)
 temp = "." * lengtewoord
 
-print("welkom bij Galgje, dit is hoe het werkt. Bij het spel Galgje gaat het er om dat je het woord gaat raden dat diegene heeft genoteerd (maar wat je niet kan zien). Je gaat losse letters raden. Je mag maar een beperkt aantal fouten maken. Als je een fout maakt dan wordt een streepje van de galg getekend. Voer hier een letter in ")
+def my_function (aantal_beurten): 
+  print("Dat heb je niet heel goed gedaan aantal beurten is:" + aantal_beurten ) 
+
+print("welkom bij Galgje, dit is hoe het werkt. Bij het spel Galgje gaat het er om dat je het woord gaat raden dat diegene heeft genoteerd (maar wat je niet kan zien). Je gaat losse letters raden. Je mag maar een beperkt aantal fouten maken. Als je een fout maakt dan wordt een streepje van de galg getekend. Als je het hele woord geraden hebt, voer dan dat woord in. Voer hier een letter in ")
 print("het woord heeft " + str(lengtewoord) + " letters")
 
 while True:
   userguess = (input("voer een letter in: "))
   match = re.search(userguess, hetwoord)
   if userguess == hetwoord: #als je het woord heb geraden
-    print('je heb het woord ' + '"' + hetwoord + '"' + " geraden")
+    print('je heb het woord ' + '"' + hetwoord + '"' + " geraden, HEEL GOED!!!!!!!!!!!!!")
     break
-    
+  
+
+   
   if len(userguess) > 1:
    print("Je mag maar een letter per keer raden")
    match = False
@@ -29,24 +35,29 @@ while True:
     # staat er nog een . in temp? Zo nee, feest!
       if temp == hetwoord:
        print ("Je bent echt onwijs goed!!!")
+       
+    
+    
     print(temp)
-        
-    print(temp)
-   else: # fout geraden
+  
+         
+  else: # fout geraden
     print("FoUt")
     counter = counter + 1
     if counter == 1:
-     print ("O oooh je hebt nog 4 beurten...")
+      my_function("1")
     if counter == 2:
-     print ("Het gaat niet zo lekker.. Je hebt nog 3 beurten!")
+     my_function("2")
     if counter == 3:
-     print ("Je hebt nu nog maar 2 beurten!!!")
+     my_function("3")
     if counter == 4:
-     print ("Sukkel je hebt nog maar 1 beurt!!!!!")
+     my_function("4")
     if counter == 5:
      print ("GAME OVER")
      print ('het woord was ' + '"' + hetwoord + '"')
      break
     else:
-     pass
-     
+     pass 
+   
+       
+
