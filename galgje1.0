@@ -17,7 +17,10 @@ while True:
     print('je heb het woord ' + '"' + hetwoord + '"' + " geraden")
     break
     
-  elif match: #goed geraden letter
+  if len(userguess) > 1:
+   print("Je mag maar een letter per keer raden")
+   match = False
+  if match: #goed geraden letter
     print("HeEl GoEd!!!")
     for i in range(0, lengtewoord):
       if userguess == hetwoord[i]:
@@ -26,9 +29,6 @@ while True:
     # staat er nog een . in temp? Zo nee, feest!
       if temp == hetwoord:
        print ("Je bent echt onwijs goed!!!")
-       
-    
-    
     print(temp)
         
     print(temp)
