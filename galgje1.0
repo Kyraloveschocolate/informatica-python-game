@@ -17,11 +17,20 @@ while True:
     print('je heb het woord ' + '"' + hetwoord + '"' + " geraden")
     break
     
- elif match: #goed geraden letter
+  elif match: #goed geraden letter
     print("HeEl GoEd!!!")
     for i in range(0, lengtewoord):
       if userguess == hetwoord[i]:
         temp = temp[:i] + userguess +temp[i+1:]
+    
+    # staat er nog een . in temp? Zo nee, feest!
+      if temp == hetwoord:
+       print ("Je bent echt onwijs goed!!!")
+       
+    
+    
+    print(temp)
+        
     print(temp)
    else: # fout geraden
     print("FoUt")
