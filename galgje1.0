@@ -26,7 +26,7 @@ while True:
   if len(userguess) > 1:
    print("Je mag maar een letter per keer raden")
    match = False
-  elif len(userguess) is not 'abcdefghijklmnopqrstuvwxyz'
+  elif len(userguess) is not 'abcdefghijklmnopqrstuvwxyz':
    print("Je moet een letter raden")
   if match: #goed geraden letter
     print("HeEl GoEd!!!")
