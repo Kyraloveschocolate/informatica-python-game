@@ -12,7 +12,7 @@ print("welkom bij Galgje, dit is hoe het werkt. Bij het spel Galgje gaat het er 
 print("het woord heeft " + str(lengtewoord) + " letters")
 
 while True:
-print(letters)
+  print(letters)
   userguess = (input(": "))
   match = re.search(userguess, hetwoord)
   if userguess == hetwoord: #als je het woord heb geraden
@@ -21,7 +21,7 @@ print(letters)
 
 
   elif match: #goed geraden letter
-    letters.append(usersguess)
+    letters.append(userguess)
     print("Goed geraden")
     for i in range(0, lengtewoord):
       if userguess == hetwoord[i]:
@@ -39,7 +39,7 @@ print(letters)
   else: # fout gereaden
     print("nee geen match")
     counter = counter + 1
-    letters.append(usersguess)
+    letters.append(userguess)
     if counter == 1:
       print("""  
      |
@@ -136,5 +136,6 @@ _____|""")
       break
     else:
      pass
+
 
 
