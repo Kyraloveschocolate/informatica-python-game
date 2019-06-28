@@ -14,18 +14,19 @@ def my_function (aantal_beurten):
 print("welkom bij Galgje, dit is hoe het werkt. Bij het spel Galgje gaat het er om dat je het woord gaat raden dat diegene heeft genoteerd (maar wat je niet kan zien). Je gaat losse letters raden. Je mag maar een beperkt aantal fouten maken. Als je een fout maakt dan wordt een streepje van de galg getekend. Als je het hele woord geraden hebt, voer dan dat woord in. Voer hier een letter in ")
 print("het woord heeft " + str(lengtewoord) + " letters")
 
+
 while True:
-  userguess = (input("voer een letter in: "))
+  userguess = input("voer een letter in: ")
   match = re.search(userguess, hetwoord)
   if userguess == hetwoord: #als je het woord heb geraden
     print('je heb het woord ' + '"' + hetwoord + '"' + " geraden, HEEL GOED!!!!!!!!!!!!!")
     break
-  
-
    
   if len(userguess) > 1:
    print("Je mag maar een letter per keer raden")
    match = False
+  elif userguess.isdigit():
+    print("geen getallen")
    
   if match: #goed geraden letter
     print("HeEl GoEd!!!")
@@ -36,11 +37,8 @@ while True:
     # staat er nog een . in temp? Zo nee, feest!
       if temp == hetwoord:
        print ("Je bent echt onwijs goed!!!")
-       
-    
-    
-    print(temp)
-  
+       break    
+       print(temp)
          
   else: # fout geraden
     print("FoUt")
@@ -60,5 +58,3 @@ while True:
     else:
      pass 
    
-       
-
