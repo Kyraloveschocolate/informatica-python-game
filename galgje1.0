@@ -1,60 +1,137 @@
-
 import re
 import random
 
 counter = 0
-compwoordenlist = ["informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit" , "heesterperk"]                        
+compwoordenlist = ["informatica", "informatiekunde", "spelletje", "aardigheidje", "scholier", "fotografie", "waardebepaling", "specialiteit", "verzekering", "universiteit", "heesterperk"]                        
 hetwoord = random.choice(compwoordenlist)
 lengtewoord = len(hetwoord)
 temp = "." * lengtewoord
 
-def my_function (aantal_beurten): 
-  print("Dat heb je niet heel goed gedaan aantal beurten is:" + aantal_beurten ) 
-
 print("welkom bij Galgje, dit is hoe het werkt. Bij het spel Galgje gaat het er om dat je het woord gaat raden dat diegene heeft genoteerd (maar wat je niet kan zien). Je gaat losse letters raden. Je mag maar een beperkt aantal fouten maken. Als je een fout maakt dan wordt een streepje van de galg getekend. Als je het hele woord geraden hebt, voer dan dat woord in. Voer hier een letter in ")
 print("het woord heeft " + str(lengtewoord) + " letters")
 
-
 while True:
-  userguess = input("voer een letter in: ")
+  userguess = (input(": "))
   match = re.search(userguess, hetwoord)
   if userguess == hetwoord: #als je het woord heb geraden
-    print('je heb het woord ' + '"' + hetwoord + '"' + " geraden, HEEL GOED!!!!!!!!!!!!!")
+    print('je heb het woord ' + '"' + hetwoord + '"' + " geraden")
     break
-   
-  if len(userguess) > 1:
-   print("Je mag maar een letter per keer raden")
-   match = False
-  elif userguess.isdigit():
-    print("geen getallen")
-   
-  if match: #goed geraden letter
-    print("HeEl GoEd!!!")
+
+
+  elif match: #goed geraden letter
+    print("Goed geraden")
     for i in range(0, lengtewoord):
       if userguess == hetwoord[i]:
         temp = temp[:i] + userguess +temp[i+1:]
-    
-    # staat er nog een . in temp? Zo nee, feest!
-      if temp == hetwoord:
-       print ("Je bent echt onwijs goed!!!")
-       break    
-       print(temp)
-         
-  else: # fout geraden
-    print("FoUt")
+    print(temp)
+
+  elif len(userguess) > 1:
+   counter = counter + 1
+   print("Je mag maar een letter per keer raden, er gaat 1 kans af")
+   match = False
+  elif userguess.isdigit():
+    print("geen getallen, er gaat 1 kans af")
+    counter = counter + 1
+
+  else: # fout gereaden
+    print("nee geen match")
     counter = counter + 1
     if counter == 1:
-      my_function("1")
-    if counter == 2:
-     my_function("2")
-    if counter == 3:
-     my_function("3")
-    if counter == 4:
-     my_function("4")
-    if counter == 5:
-     print ("GAME OVER")
-     print ('het woord was ' + '"' + hetwoord + '"')
-     break
+      print("""  
+     |
+     |
+     |
+     |
+     |
+_____|""")
+      print("Je hebt nog 9 kansen")
+    elif counter == 2:
+           print("""  ____
+     |
+     |
+     |
+     |
+     |
+_____|""")
+           print("Je hebt nog 8 kansen")
+    elif counter == 3:
+            print("""  ____
+    \|
+     |
+     |
+     |
+     |
+_____|""")
+            print("Je hebt nog 7 kansen")
+    elif counter == 4:
+      print("""  ____
+  | \|
+     |
+     |
+     |
+     |
+_____|""")
+      print("Je hebt nog 6 kansen")
+    elif counter == 5:
+      print("""  ____
+  | \|
+  0  |
+     |
+     |
+     |
+_____|""")
+      print("Je hebt nog 5 kansen")
+    elif counter == 6:
+      print("""  ____
+  | \|
+  0  |
+  |  |
+     |
+     |
+_____|""")
+      print("Je hebt nog 4 kansen")
+    elif counter == 7:
+      print("""  ____
+  | \|
+  0  |
+ /|  |
+     |
+     |
+_____|""")
+      print("Je hebt nog 3 kansen")
+
+    elif counter == 8:
+      print("""  ____
+  | \|
+  0  |
+ /|\ |
+     |
+     |
+_____|""")
+      print("Je hebt nog 2 kansen")
+
+    elif counter == 9:
+      print("""  ____
+  | \|
+  0  |
+ -|- |
+ /   |
+     |
+_____|""")
+      print("Je hebt nog maar 1 kans!!!")
+    elif counter ==10:
+      print("Helaas, je bent dood")
+      print("""  ____
+  | \|
+  0  |
+ -|- |
+ / \ |
+     |
+_____|""")
+      print('het woord was ' + '"' + hetwoord + '"')
+      break
     else:
-     pass 
-   
+     pass
+
+
+
